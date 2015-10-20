@@ -78,7 +78,7 @@ guacamole.properties such that the authentication provider is available.
     mysql-password:
 
     # Authentication provider class
-    auth-provider: au.org.massive.guacamole.auth.RemoteMySQLAuthenticationProvider
+    auth-provider: au.org.massive.guacamole.auth.CookiesAuthenticationProvider
 
     #lib directory, where the massive-guacamole-remote-0.9.5.jar placed in
     lib-directory:/srv/guacamole/

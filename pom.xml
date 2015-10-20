@@ -14,7 +14,7 @@
     </properties>
 
     <description>
-        This is a guacamole auth extension which supports shibboleth authentication.
+        This is a guacamole auth extension that gets credentials from browser cookies.
     </description>
 
     <build>
@@ -67,11 +67,11 @@
             <version>0.9.5</version>
         </dependency>
 
-        <!-- mysql jdbc driver -->
+        <!-- gson serialisation -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.34</version>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.3.1</version>
         </dependency>
 
         <!-- apache commons lang -->
