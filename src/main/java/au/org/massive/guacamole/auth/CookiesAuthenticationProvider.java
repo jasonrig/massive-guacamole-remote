@@ -52,4 +52,8 @@ public class CookiesAuthenticationProvider extends SimpleAuthenticationProvider 
 
         return configurations;
     }
+
+    public String getIdentifier() {
+        return "strudel-web-auth";
+    }
 }
