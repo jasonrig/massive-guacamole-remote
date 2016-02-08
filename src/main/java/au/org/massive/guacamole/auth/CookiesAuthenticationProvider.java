@@ -29,23 +29,26 @@ public class CookiesAuthenticationProvider extends SimpleAuthenticationProvider 
         HttpServletRequest request = credentials.getRequest();
         Map<String,String> vncCredentials;
         Gson gson = new Gson();
-        for (Cookie c : request.getCookies()) {
-            if (c.getName().startsWith("vnc-credentials")) {
-                //noinspection unchecked
-                try {
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie c : cookies) {
+                if (c.getName().startsWith("vnc-credentials")) {
                     //noinspection unchecked
-                    vncCredentials = gson.fromJson(URLDecoder.decode(c.getValue(), "utf-8"), Map.class);
+                    try {
+                        //noinspection unchecked
+                        vncCredentials = gson.fromJson(URLDecoder.decode(c.getValue(), "utf-8"), Map.class);
 
-                    configuration.setParameter("hostname", vncCredentials.get("hostname"));
-                    configuration.setParameter("port", vncCredentials.get("port"));
-                    configuration.setParameter("password", vncCredentials.get("password"));
-                    configuration.setProtocol(vncCredentials.get("protocol"));
-                    configurations.put(vncCredentials.get("name"), configuration);
+                        configuration.setParameter("hostname", vncCredentials.get("hostname"));
+                        configuration.setParameter("port", vncCredentials.get("port"));
+                        configuration.setParameter("password", vncCredentials.get("password"));
+                        configuration.setProtocol(vncCredentials.get("protocol"));
+                        configurations.put(vncCredentials.get("name"), configuration);
 
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                } catch (JsonSyntaxException e1) {
-                    e1.printStackTrace();
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    } catch (JsonSyntaxException e1) {
+                        e1.printStackTrace();
+                    }
                 }
             }
         }
