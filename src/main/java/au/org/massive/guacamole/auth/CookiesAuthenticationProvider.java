@@ -41,7 +41,8 @@ public class CookiesAuthenticationProvider extends SimpleAuthenticationProvider 
                         configuration.setParameter("hostname", vncCredentials.get("hostname"));
                         configuration.setParameter("port", vncCredentials.get("port"));
                         configuration.setParameter("password", vncCredentials.get("password"));
-                        configuration.setParameter("encodings", "tight,ultra,raw");
+                        configuration.setParameter("encodings", "ultra copyrect hextile zlib corre rre raw");
+                        configuration.setParameter("color-depth", "16");
                         configuration.setProtocol(vncCredentials.get("protocol"));
                         configurations.put(vncCredentials.get("name"), configuration);
 
